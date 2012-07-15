@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ExamTestApp</string>
+    <string name="app_description">Exam Test App</string>
+    <string name="menu_fragment">Fragment</string>
+    <string name="menu_explicit_intent">Change Activity</string>
+    <string name="menu_implicit_intent">Share</string>
+    <string name="fragment_text">Fragment Default Text</string>
+    <string name="second_button">Extra Text to Fragment TextView</string>
+
+</resources>

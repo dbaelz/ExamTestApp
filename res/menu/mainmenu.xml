@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+	<item
+		android:id="@+id/menu_fragment"
+      	android:icon="@drawable/ic_menu_compass"
+      	android:title="@string/menu_fragment"
+      	android:showAsAction="always|withText" />
+    
+	<item
+		android:id="@+id/menu_explicit_intent"
+      	android:icon="@drawable/ic_menu_goto"
+      	android:title="@string/menu_explicit_intent"      	
+      	android:showAsAction="ifRoom|withText" />
+	
+	<item
+		android:id="@+id/menu_implicit_intent"
+      	android:icon="@drawable/ic_menu_share"
+      	android:title="@string/menu_implicit_intent"
+      	android:showAsAction="ifRoom|withText" />
+	
+</menu>
