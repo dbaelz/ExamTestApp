@@ -17,8 +17,22 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<data android:scheme="http" android:host="failbots.de" android:pathPattern=".*/ExamTestApp" />
+				<data android:scheme="https" android:host="failbots.de" android:pathPattern=".*/ExamTestApp" />				
+            </intent-filter>
         </activity>
         <activity android:name=".ui.SecondActivity"></activity>
+        <activity android:name=".ui.LoaderListActivity"></activity>
+        
+        
+        <provider
+            android:name=".contentprovider.ExamContentProvider"
+            android:authorities="de.failbots.db.exam.contentprovider" >
+        </provider>
     </application>
 
 </manifest>
