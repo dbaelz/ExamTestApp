@@ -16,13 +16,16 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ShareActionProvider;
 import android.widget.Toast;
 
 public class ExamTestAppActivity extends Activity {
 	
-	Fragment fragment;
-	FragmentManager fm;
-
+	private Fragment fragment;
+	private FragmentManager fm;
+	private ShareActionProvider shareActionProvider;
+	
+	private final String[] receiver = { "examTestApp@failbots.de" };
 	
     /** Called when the activity is first created. */
     @Override
@@ -37,11 +40,23 @@ public class ExamTestAppActivity extends Activity {
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-    	MenuInflater inflater = getMenuInflater();
+    	MenuInflater inflater = getMenuInflater();    
     	inflater.inflate(R.menu.mainmenu, menu);
+    	MenuItem shareItem = menu.findItem(R.id.menu_share);
+    	shareActionProvider = (ShareActionProvider) shareItem.getActionProvider();
+    	shareActionProvider.setShareIntent(shareIntent());
     	return true;
     }
     
+    private Intent shareIntent() {
+		Intent shareIntent = new Intent(Intent.ACTION_SEND);
+		shareIntent.setType(HTTP.PLAIN_TEXT_TYPE);
+		shareIntent.putExtra(Intent.EXTRA_SUBJECT, "ShareIntent: Send from my ExamTestApp");
+		shareIntent.putExtra(Intent.EXTRA_EMAIL, receiver);
+		shareIntent.putExtra(Intent.EXTRA_TEXT, "This is just a test");
+	
+		return shareIntent;
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
     	switch (item.getItemId()) {
@@ -66,11 +81,10 @@ public class ExamTestAppActivity extends Activity {
 			startActivity(intent);
 			return true;
 		case R.id.menu_implicit_intent:
-			String[] emailAdress = { "examTestApp@failbots.de" };
 			Intent emailIntent = new Intent(Intent.ACTION_SEND);
 			emailIntent.setType(HTTP.PLAIN_TEXT_TYPE);
-			emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Send from my ExamTestApp");
-			emailIntent.putExtra(Intent.EXTRA_EMAIL, emailAdress);
+			emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Intent: Send from my ExamTestApp");
+			emailIntent.putExtra(Intent.EXTRA_EMAIL, receiver);
 			emailIntent.putExtra(Intent.EXTRA_TEXT, "This is just a test");
 
 			PackageManager pm = getPackageManager();
