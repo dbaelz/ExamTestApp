@@ -1,7 +1,8 @@
 package de.failbots.db.exam.ui;
 
 import de.failbots.db.exam.R;
-import de.failbots.db.exam.cp.ExamContentProvider;
+import de.failbots.db.exam.data.ExamContentProvider;
+import de.failbots.db.exam.data.ExamTable;
 import android.app.ActionBar;
 import android.app.ListActivity;
 import android.app.LoaderManager;
@@ -18,7 +19,7 @@ public class LoaderListActivity extends ListActivity implements
 				LoaderManager.LoaderCallbacks<Cursor>{
 
 	public static final String COLUMN_ID = "_id";
-	public static final String COLUMN_SUMMARY = "summary";
+	public static final String COLUMN_TEXT = "text";
 	
 	private SimpleCursorAdapter adapter;
 	
@@ -32,7 +33,7 @@ public class LoaderListActivity extends ListActivity implements
 	}
 	
 	private void fillList() {
-		String[] from = new String[] { "AAA", "BBB", "CCC" };
+		String[] from = new String[] { ExamTable.COLUMN_TEXT };
 		int[] to = new int[] { R.id.label };
 
 		getLoaderManager().initLoader(0, null, this);
@@ -63,7 +64,7 @@ public class LoaderListActivity extends ListActivity implements
 	
 	@Override
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-		String[] projection = { LoaderListActivity.COLUMN_ID, LoaderListActivity.COLUMN_SUMMARY };
+		String[] projection = { LoaderListActivity.COLUMN_ID, LoaderListActivity.COLUMN_TEXT };
 		CursorLoader cursorLoader = new CursorLoader(this,
 				ExamContentProvider.CONTENT_URI, projection, null, null, null);
 		return cursorLoader;

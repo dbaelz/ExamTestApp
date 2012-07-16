@@ -5,8 +5,9 @@
     <string name="menu_fragment">Fragment</string>
     <string name="menu_explicit_intent">Change Activity</string>
     <string name="menu_implicit_intent">Share</string>
+    <string name="menu_db">Load from DB</string>
     <string name="fragment_text">Fragment Default Text</string>
     <string name="second_button">Extra Text to Fragment TextView</string>
 	<string name="list_empty">No entries</string>
-	<string name="list_row_desc">Icon for list element</string>
+	<string name="list_row_desc">Icon for list element</string>	
 </resources>

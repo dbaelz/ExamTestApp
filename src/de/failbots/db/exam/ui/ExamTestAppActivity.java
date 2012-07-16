@@ -56,6 +56,10 @@ public class ExamTestAppActivity extends Activity {
 				fmt.commit();
 			}			
 			return true;
+		case R.id.menu_loader:
+			Intent intentLoader = new Intent(this, LoaderListActivity.class);
+			startActivity(intentLoader);
+			return true;
 		case R.id.menu_explicit_intent:
 			Intent intent = new Intent(this, SecondActivity.class);
 			intent.putExtra("EXPLICIT_EXTRA", "Activity Extra String");

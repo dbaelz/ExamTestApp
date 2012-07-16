@@ -30,8 +30,8 @@
         
         
         <provider
-            android:name=".contentprovider.ExamContentProvider"
-            android:authorities="de.failbots.db.exam.contentprovider" >
+            android:name=".data.ExamContentProvider"
+            android:authorities="de.failbots.db.exam.data" >
         </provider>
     </application>
 
