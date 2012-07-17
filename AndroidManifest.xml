@@ -21,8 +21,8 @@
                 <action android:name="android.intent.action.VIEW" />
 				<category android:name="android.intent.category.DEFAULT" />
 				<category android:name="android.intent.category.BROWSABLE" />
-				<data android:scheme="http" android:host="failbots.de" android:pathPattern=".*/ExamTestApp" />
-				<data android:scheme="https" android:host="failbots.de" android:pathPattern=".*/ExamTestApp" />				
+				<data android:scheme="http" android:host="*" android:pathPattern=".*/ExamTestApp/test.html" />
+				<data android:scheme="https" android:host="*" android:pathPattern=".*/ExamTestApp/test.html" />				
             </intent-filter>
         </activity>
         <activity android:name=".ui.SecondActivity"></activity>
